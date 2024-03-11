@@ -1,0 +1,22 @@
+{
+  "name": "tsoa-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsoa spec && tsoa routes && tsc",
+    "start": "npm run build && node ./dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsoa/cli": "^6.1.0",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@tsoa/runtime": "^6.1.0",
+    "express": "^4.18.3"
+  }
+}

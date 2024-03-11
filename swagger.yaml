@@ -1,0 +1,53 @@
+openapi: 3.0.0
+components:
+    examples: {}
+    headers: {}
+    parameters: {}
+    requestBodies: {}
+    responses: {}
+    schemas:
+        Pick_BaseModel.Exclude_keyofBaseModel.index__:
+            properties:
+                key:
+                    type: string
+                value:
+                    type: string
+            required:
+                - key
+                - value
+            type: object
+            description: 'From T, pick a set of properties whose keys are in the union K'
+        InheritingModel:
+            properties:
+                key:
+                    type: string
+                value:
+                    type: string
+            required:
+                - key
+                - value
+            type: object
+            additionalProperties: false
+    securitySchemes: {}
+info:
+    title: tsoa-example
+    version: 1.0.0
+    license:
+        name: ISC
+    contact: {}
+paths:
+    /example:
+        get:
+            operationId: Get
+            responses:
+                '200':
+                    description: Ok
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/InheritingModel'
+            security: []
+            parameters: []
+servers:
+    -
+        url: /
