@@ -28,6 +28,32 @@ components:
                 - value
             type: object
             additionalProperties: false
+        BaseModel:
+            properties:
+                key:
+                    type: string
+                value:
+                    type: string
+                index:
+                    type: number
+                    format: double
+            required:
+                - key
+                - value
+                - index
+            type: object
+            additionalProperties: false
+        InheritingPickModel:
+            properties:
+                key:
+                    type: string
+                value:
+                    type: string
+            required:
+                - key
+                - value
+            type: object
+            additionalProperties: false
     securitySchemes: {}
 info:
     title: tsoa-example
@@ -36,9 +62,9 @@ info:
         name: ISC
     contact: {}
 paths:
-    /example:
+    /example/omit:
         get:
-            operationId: Get
+            operationId: GetOmit
             responses:
                 '200':
                     description: Ok
@@ -46,6 +72,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/InheritingModel'
+            security: []
+            parameters: []
+    /example/base:
+        get:
+            operationId: GetBase
+            responses:
+                '200':
+                    description: Ok
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BaseModel'
+            security: []
+            parameters: []
+    /example/pick:
+        get:
+            operationId: GetPick
+            responses:
+                '200':
+                    description: Ok
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/InheritingPickModel'
             security: []
             parameters: []
 servers:
